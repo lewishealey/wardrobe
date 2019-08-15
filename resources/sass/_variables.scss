@@ -1,0 +1,112 @@
+// Body
+$body-bg: #f8fafc;
+
+// Typography
+$font-family-sans-serif: 'Nunito', sans-serif;
+$font-size-base: 0.9rem;
+$line-height-base: 1.6;
+
+// Colors
+$blue: #3490dc;
+$indigo: #6574cd;
+$purple: #9561e2;
+$pink: #f66d9b;
+$red: #e3342f;
+$orange: #f6993f;
+$yellow: #ffed4a;
+$green: #38c172;
+$teal: #4dc0b5;
+$cyan: #6cb2eb;
+
+$border: #d9d9d9;
+$dark: #121212;
+
+
+
+@mixin animation($str) {
+    -webkit-animation: #{$str};
+    -moz-animation: #{$str};
+    -ms-animation: #{$str};
+    -o-animation: #{$str};
+    animation: #{$str};
+  }
+  
+  
+  $phone-width: 320px;
+  $tablet-width: 768px;
+  $tablet-xl-width: 1100px;
+  $desktop-width: 1280px;
+  $desktop-xl-width: 1600px;
+  
+  @mixin phone {
+    @media (min-width: #{$phone-width}) and (max-width: #{$tablet-width - 1px}) {
+      @content;
+    }
+  }
+  
+  @mixin tablet {
+    @media (min-width: #{$tablet-width}) and (max-width: #{$tablet-xl-width - 1px}) {
+      @content; 
+    }
+  }
+  
+  @mixin tablet-xl {
+    @media (min-width: #{$tablet-xl-width}) and (max-width: #{$desktop-width - 1px}) {
+      @content; 
+    }
+  }
+  
+  @mixin desktop {
+    @media (min-width: #{$desktop-width}) and (max-width: #{$desktop-xl-width - 1px}) {
+      @content;
+    }
+  }
+  
+  @mixin desktop-xl {
+    @media (min-width: #{$desktop-xl-width}) {
+      @content;
+    }
+  }
+  
+  @mixin font-smoothing {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  // generic transform
+  @mixin transform($transforms) {
+    -moz-transform: $transforms;
+      -o-transform: $transforms;
+     -ms-transform: $transforms;
+  -webkit-transform: $transforms;
+         transform: $transforms;
+  }
+  
+  // rotate
+  @mixin rotate ($deg) {
+  @include transform(rotate(#{$deg}deg));
+  }
+  
+  // scale
+  @mixin scale($scale) {
+  @include transform(scale($scale));
+  } 
+  
+  // translate
+  @mixin translate ($x, $y) {
+  @include transform(translate($x, $y));
+  }
+  
+  // skew
+  @mixin skew ($x, $y) {
+  @include transform(skew(#{$x}deg, #{$y}deg));
+  }
+  
+  //transform origin
+  @mixin transform-origin ($origin) {
+   moz-transform-origin: $origin;
+      -o-transform-origin: $origin;
+     -ms-transform-origin: $origin;
+  -webkit-transform-origin: $origin;
+         transform-origin: $origin;
+  }

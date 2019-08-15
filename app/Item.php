@@ -1,0 +1,20 @@
+<?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Item extends Model
+{
+    protected $table = 'item';
+
+    public function outfits()
+    {
+        return $this->belongsToMany('App\Outfit');
+    }
+
+    public function media()
+    {
+        return $this->hasMany('App\Media');
+    }
+}
